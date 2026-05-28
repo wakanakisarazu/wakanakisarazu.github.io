@@ -1,0 +1,75 @@
+<!--
+    SPDX-License-Identifier: GPL-3.0-or-later
+    SPDX-FileCopyrightText: 2026 Wakana Kisarazu
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title> Welcome to Wakana's web! </title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <!-- XtermJS intergration -->
+        <link rel="stylesheet" href="xterm/css/xterm.css">
+        <script src="xterm/lib/xterm.js"> </script>
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <section class="panel"> </section>
+
+            <h2> I'm Wakana Kisarazu! </h2>
+
+            <p>
+                British transbian programmer.
+                I like kernels, bootloaders, and girls :3
+            </p>
+
+            <h4> Work in progress... if you can't tell... </h4>
+
+        </main>
+
+        <div id="terminal"> </div>
+        <script>
+            const systemInfo = `
+            taylor@EDEIC:/home/taylor:$ fastfetch
+
+OS:                 TetOS Linux x86_64
+Host:               ASUS MB
+Kernel:             Linux 7.0.10-arch1-1
+Uptime:             0 hours, 0 mins
+Packages:           666 (pacman)
+Shell:              bash 5.3.9
+Display (S271HL):   1920x1080 in 27", 60 Hz [External]
+WM:                 WindowMaker (X11)
+Theme:              Nexto_Dark [GTK2/3]
+Font:               System-ui (11pt) [GTK2/3]
+Terminal:           xtermjs
+CPU:                Intel(R) Core(TM) i5-4690K (4) @ 4.50 GHz
+GPU 1:              NVIDIA GeForce GTX 770 [Discrete]
+GPU 2:              Intel Xeon E3-1200 v3/4th Gen iGPU @ 1.20 GHz [Integrated]
+Memory:             6.23 GiB / 27.28 GiB (23%)
+Disk (/mnt/nvme0):  114.32 GiB / 238.47 GiB (48%) - btrfs
+Disk (/mnt/sata0):  436.95 GiB / 1.82 TiB (23%) - xfs
+Locale:             en_GB.UTF-8
+            `.trim();
+
+            const term = new Terminal();
+            term.open(document.getElementById('terminal'));
+            term.write(systemInfo.replace(/\n/g, "\r\n"));
+            
+        </script>
+
+    </body>
+
+</html>

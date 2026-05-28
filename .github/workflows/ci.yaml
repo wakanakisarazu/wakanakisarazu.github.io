@@ -1,0 +1,52 @@
+name: Build and deploy GitHub Pages
+
+on: 
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node Modules
+        run: |
+          npm ci
+          
+      - name: Setup Nim
+        uses: jiro4989/setup-nim-action@v2
+
+      - name: Build Nim
+        run: |
+          nim compileRelease build.nims
+
+      - name: Upload target
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: target
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2026 Wakana Kisarazu <wakanakisarazu.work@gmail.com>
+
+
+
+# Set the default behavior to automatically normalize line endings.
+* text=auto eol=lf
+
+# Set linguist parameters for GitHub's language detection
+*.nim linguist-language=Nim
+*.yaml linguist-language=Yaml
+
+# Denote binary files
+assets/* binary

@@ -1,0 +1,29 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2026 Wakana Kisarazu <wakanakisarazu.work@gmail.com>
+
+
+
+# Exclude Node Modules directory
+node_modules
+
+# Exclude random crap
+*.a
+*.bak
+*.cache
+*.DS_Store
+*.dylib
+*.exe
+*.lib
+*.log
+*.o
+*.swp
+*.tmp
+*.temp
+*.vcxproj
+*.vscode
+
+# Exclude Nim generated output
+.nimcache
+
+# Exclude artifact directories
+target

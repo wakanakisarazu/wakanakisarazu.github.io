@@ -1,0 +1,15 @@
+{
+  "author": {
+    "name": "Wakana Kisarazu",
+    "email": "wakanakisarazu.work@gmail.com",
+    "url": "https://wakanakisarazu.github.io"
+  },
+  
+  "dependencies": {
+    "@xterm/xterm": "^6.0.0"
+  },
+
+  "private": true,
+
+  "license": "SEE LICENSE IN <LICENSE>"
+}
