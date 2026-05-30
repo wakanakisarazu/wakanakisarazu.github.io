@@ -3,6 +3,8 @@
     SPDX-FileCopyrightText: 2026 Wakana Kisarazu
 */
 
+
+
 @font-face {
     font-family: "Fira Mono";
     font-weight: 700;
@@ -21,29 +23,7 @@
     src: url("assets/fonts/fira-mono_regular.ttf") format("truetype");
 }
 
-@font-face {
-    font-family: "Frutiger";
-    font-weight: 700;
-    src: url("assets/fonts/frutiger_bold.ttf") format("truetype");
-}
 
-@font-face {
-    font-family: "Frutiger";
-    font-weight: 500;
-    src: url("assets/fonts/frutiger_regular.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 600;
-    src: url("assets/fonts/segoe-ui_semibold.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Segoe UI";
-    font-weight: 400;
-    src: url("assets/fonts/segoe-ui_semilight.ttf") format("truetype");
-}
 
 :root {
     --bg: #12051d;
