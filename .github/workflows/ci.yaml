@@ -41,18 +41,20 @@ jobs:
         run: |
           set -euo pipefail
 
+          echo "Creating assets directory..."
+          mkdir -pv target/assets
+
           echo "Creating target directory..."
           mkdir -pv target/thirdparty
-
-          echo "Copying assets..."
-          cp -rv assets/. target/
-
+          
           echo "Copying website..."
           cp -rv source/website/. target/
 
           echo "Copying selected node modules..."
           cp -rv node_modules/@xterm target/thirdparty/xterm || true
 
+          echo "Copying assets..."
+          cp -rv assets/ target/assets
           echo "Final target structure:"
           ls -lah target/
 
