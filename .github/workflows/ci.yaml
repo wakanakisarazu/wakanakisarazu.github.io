@@ -26,10 +26,10 @@ jobs:
         run: |
           npm ci
       
-      - name: Install Zig
-        uses: mlugg/setup-zig@v1
-        with:
-          version: 0.16.0
+      #- name: Install Zig
+      #  uses: mlugg/setup-zig@v1
+      #  with:
+      #    version: 0.16.0
       
       # Will re-enable after emulator code
       # somewhat works.
