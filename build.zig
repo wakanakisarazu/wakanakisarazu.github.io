@@ -16,4 +16,7 @@ pub fn build(b: *Build) void
     const resolvedTarget = b.standardTargetOptions(.{
         .default_target = .{ .cpu_arch = .wasm32, .os_tag = .freestanding, .abi = .none }
     });
+
+    _ = optimizeMode;
+    _ = resolvedTarget;
 }
