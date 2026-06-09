@@ -37,14 +37,24 @@ jobs:
       #  run:
       #    zig build -Doptimize=ReleaseSmall
       
-      - name: Copy to target
-        run: |
-          set -e
+    - name: Copy to target
+      run: |
+        set -euo pipefail
 
-          echo "Making target directory"; mkdir -pv target; mkdir -pv target/thirdparty
-          echo "Copying node_modules/ ..."; cp -rv node_modules/* target/thirdparty/
-          echo "Copying assets/ ..."; cp -rv assets/. target/
-          echo "Copying website/ ..."; cp -rv source/website/. target/
+        echo "Creating target directory..."
+        mkdir -pv target/thirdparty
+
+        echo "Copying assets..."
+        cp -rv assets/. target/
+
+        echo "Copying website..."
+        cp -rv source/website/. target/
+
+        echo "Copying selected node modules..."
+        cp -rv node_modules/@xterm target/thirdparty/xterm || true
+
+        echo "Final target structure:"
+        ls -lah target/
 
       - name: Upload target
         uses: actions/upload-pages-artifact@v3
