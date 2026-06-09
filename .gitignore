@@ -3,27 +3,52 @@
 
 
 
-# Exclude Node Modules directory
-node_modules
+# Build artifacts
+build/
+target/
 
-# Exclude random crap
+# Compiled libraries
 *.a
+*.dll
+*.dylib
+*.lib
+*.so
+
+# Compiled objects
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+
+# Logs
+*.log
+
+# Temporary files
 *.bak
 *.cache
-*.DS_Store
-*.dylib
-*.exe
-*.lib
-*.log
-*.o
 *.swp
-*.tmp
 *.temp
-*.vcxproj
-*.vscode
+*.tmp
 
-# Exclude Nim generated output
-.nimcache
+# Zig
+.zig-cache/
+zig-out/
 
-# Exclude artifact directories
-target
+# Nim
+nimcache/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Generated sources
+generated/

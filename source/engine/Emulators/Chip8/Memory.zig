@@ -1,0 +1,57 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2026 Wakana Kisarazu <wakanakisarazu.work@gmail.com>
+
+
+
+const STACK_MEMORY_SIZE = 16;
+const SYSTEM_MEMORY_SIZE = 4096;
+
+const FONT_DATA: [80]u8 = .{
+    0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
+    0x20, 0x60, 0x20, 0x20, 0x70, // 1
+    0xF0, 0x10, 0xF0, 0x80, 0xF0, // 2
+    0xF0, 0x10, 0xF0, 0x10, 0xF0, // 3
+    0x90, 0x90, 0xF0, 0x10, 0x10, // 4
+    0xF0, 0x80, 0xF0, 0x10, 0xF0, // 5
+    0xF0, 0x80, 0xF0, 0x90, 0xF0, // 6
+    0xF0, 0x10, 0x20, 0x40, 0x40, // 7
+    0xF0, 0x90, 0xF0, 0x90, 0xF0, // 8
+    0xF0, 0x90, 0xF0, 0x10, 0xF0, // 9
+    0xF0, 0x90, 0xF0, 0x90, 0x90, // A
+    0xE0, 0x90, 0xE0, 0x90, 0xE0, // B
+    0xF0, 0x80, 0x80, 0x80, 0xF0, // C
+    0xE0, 0x90, 0x90, 0x90, 0xE0, // D
+    0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
+    0xF0, 0x80, 0xF0, 0x80, 0x80, // F
+};
+
+
+stack:      [STACK_MEMORY_SIZE]u16,
+system:     [SYSTEM_MEMORY_SIZE]u8,
+
+
+pub fn init() @This() 
+{
+    var memory: @This() = .{
+        .stack = .{0} ** STACK_MEMORY_SIZE,
+        .system = .{0} ** SYSTEM_MEMORY_SIZE,
+    };
+
+    @memcpy(memory.system[0..80], &FONT_DATA);
+
+    return memory;
+}
+
+pub fn load(this: *@This(), data: []const u8) !void
+{
+    const maxDataSize = SYSTEM_MEMORY_SIZE - 512;
+
+    if (data.len > maxDataSize) { 
+        return error.DataTooLarge; 
+    } else {
+        @memcpy(this.system[512 .. 512 + data.len], &data);
+    }
+}
+
+pub fn read(this: *@This(), address: usize) u8 { return this.system[address]; }
+pub fn write(this: *@This(), address: usize, value: u8) void { this.system[address] = value; }

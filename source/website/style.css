@@ -1,0 +1,306 @@
+/*
+    SPDX-License-Identifier: GPL-3.0-or-later
+    SPDX-FileCopyrightText: 2026 Wakana Kisarazu
+*/
+
+@font-face {
+    font-family: "Audiowide";
+    font-weight: 400;
+    src: url("assets/fonts/audiowide_regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    font-weight: 400;
+    src: url("assets/fonts/ibm-plex-sans_variable.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: 400;
+    src: url("assets/fonts/fira-mono_regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    font-weight: 700;
+    src: url("assets/fonts/fira-mono_bold.ttf") format("truetype");
+}
+
+
+:root {
+    --purple: #a56bff;
+    --purple-soft: rgba(165,107,255,0.18);
+    --glass: rgba(255,255,255,0.10);
+    --glass-strong: rgba(255,255,255,0.18);
+
+    --shadow: rgba(0,0,0,0.45);
+    --shadow-soft: rgba(0,0,0,0.25);
+
+    --text: rgba(255,255,255,0.85);
+    --text-dim: rgba(255,255,255,0.65);
+}
+
+/* ============================= */
+/* BASE                        */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    font-family: "Segoe UI", "IBM Plex Sans", sans-serif;
+    color: var(--text);
+}
+
+/* ============================= */
+/* DESKTOP BACKGROUND          */
+/* ============================= */
+
+.desktop {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 70% 20%, rgba(165,107,255,0.22), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(120,220,255,0.08), transparent 60%),
+        linear-gradient(
+            180deg,
+            rgba(10,8,20,0.92),
+            rgba(25,12,45,0.95)
+        ),
+        url("assets/images/purple-aurora-4.jpg") center/cover no-repeat;
+
+    background-blend-mode: soft-light, normal, multiply, overlay;
+
+    user-select: none;
+    overflow: hidden;
+}
+
+/* subtle atmospheric particles */
+.desktop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%),
+        radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    background-size: 300px 300px, 500px 500px;
+    background-position: 10% 20%, 70% 80%;
+    pointer-events: none;
+}
+
+/* ============================= */
+/* ICONS                       */
+/* ============================= */
+
+.desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    max-height: calc(100vh - 80px);
+}
+
+.desktop-icon {
+    width: 90px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.desktop-icon-image {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 6px;
+    position: relative;
+}
+
+.desktop-icon-image img {
+    width: 100%;
+    height: 100%;
+    transition: transform 150ms ease;
+}
+
+.desktop-icon:hover img {
+    transform: scale(1.06);
+}
+
+.desktop-icon-label {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.18);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.desktop-icon:hover .desktop-icon-label {
+    background: rgba(165,107,255,0.18);
+}
+
+/* ============================= */
+/* WINDOWS (AERO CORE)         */
+/* ============================= */
+
+.desktop-window {
+    position: absolute;
+    z-index: 10;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.06)
+        ),
+        rgba(20,10,35,0.15);
+
+    backdrop-filter: blur(22px) saturate(140%);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 18px 60px var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ============================= */
+/* TITLEBAR                    */
+/* ============================= */
+
+.window-titlebar {
+    display: flex;
+    align-items: center;
+
+    height: 32px;
+    padding: 0 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.35),
+            rgba(255,255,255,0.10)
+        );
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    cursor: grab;
+}
+
+.window-titlebar:active {
+    cursor: grabbing;
+}
+
+.titlebar-text {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ============================= */
+/* WINDOW BUTTONS              */
+/* ============================= */
+
+.titlebar-button {
+    width: 26px;
+    height: 18px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: none;
+
+    background: rgba(255,255,255,0.08);
+
+    cursor: pointer;
+}
+
+.titlebar-button:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.close {
+    background: rgba(200,60,60,0.25);
+}
+
+.close:hover {
+    background: rgba(255,80,80,0.45);
+}
+
+/* ============================= */
+/* CONTENT                     */
+/* ============================= */
+
+.window-content {
+    padding: 18px;
+}
+
+.window-content h1 {
+    font-family: "Audiowide", sans-serif;
+    font-size: 1.6rem;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 18px rgba(165,107,255,0.25),
+        0 2px 4px rgba(0,0,0,0.4);
+}
+
+.window-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+}
+
+/* ============================= */
+/* TERMINAL                    */
+/* ============================= */
+
+#terminal {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 10px;
+
+    font-family: "Fira Mono", monospace;
+    color: #b6ffcc;
+}
+
+/* ============================= */
+/* FOOTER                      */
+/* ============================= */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(10,8,20,0.7);
+    backdrop-filter: blur(14px);
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    font-size: 12px;
+    color: var(--text-dim);
+}

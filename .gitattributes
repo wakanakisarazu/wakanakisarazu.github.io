@@ -3,12 +3,39 @@
 
 
 
-# Set the default behavior to automatically normalize line endings.
+# Normalize line endings
 * text=auto eol=lf
 
-# Set linguist parameters for GitHub's language detection
-*.nim linguist-language=Nim
-*.yaml linguist-language=Yaml
+# Documentation
+*.md text
+*.txt text
 
-# Denote binary files
-assets/* binary
+# Source code
+*.c text
+*.cpp text
+*.cxx text
+*.h text
+*.hpp text
+*.hxx text
+*.nim text
+*.zig text
+
+# Scripts
+*.ps1 text eol=crlf
+*.sh text eol=lf
+
+# Binary assets
+*.bin binary
+*.bmp binary
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+
+# Fonts
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

@@ -1,0 +1,199 @@
+<!--
+    SPDX-License-Identifier: GPL-3.0-or-later
+    SPDX-FileCopyrightText: 2026 Wakana Kisarazu
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1.0"
+        >
+
+        <meta
+            name="description"
+            content="Wakana Kisarazu's personal website"
+        >
+
+        <meta
+            name="author"
+            content="Wakana Kisarazu"
+        >
+
+        <link
+            rel="icon"
+            href="assets/images/wakanakisarazu-favicon.jpg"
+            type="image/jpeg"
+        >
+
+        <link
+            rel="icon"
+            href="assets/images/wakanakisarazu-favicon.png"
+            type="image/png"
+        >
+
+        <link
+            rel="icon"
+            href="assets/images/wakanakisarazu-favicon.ico"
+            type="image/x-icon"
+        >
+
+        <link
+            rel="stylesheet"
+            href="style.css"
+        >
+
+        <title> Wakana's Web </title>
+
+    </head>
+
+    <body>
+
+        <main class="desktop">
+
+            <div class="desktop-icons">
+
+                <a class="desktop-icon" href="/about">
+                    <div class="desktop-icon-image">
+                        <img src="assets/icons/vista-info.ico" alt="About">
+                        <div class="shortcut-overlay"></div>
+                    </div>
+                    <span class="desktop-icon-label">About</span>
+                </a>
+
+                <a class="desktop-icon" href="/contact">
+                    <div class="desktop-icon-image">
+                        <img src="assets/icons/vista-messenger.ico" alt="Contact">
+                        <div class="shortcut-overlay"></div>
+                    </div>
+                    <span class="desktop-icon-label">Contact</span>
+                </a>
+
+                <a class="desktop-icon" href="/files">
+                    <div class="desktop-icon-image">
+                        <img src="assets/icons/vista-marketplace.ico" alt="Files">
+                        <div class="shortcut-overlay"></div>
+                    </div>
+                    <span class="desktop-icon-label">Files</span>
+                </a>
+
+                <a class="desktop-icon" href="/interactive">
+                    <div class="desktop-icon-image">
+                        <img src="assets/icons/vista-console.ico" alt="Interactive">
+                        <div class="shortcut-overlay"></div>
+                    </div>
+                    <span class="desktop-icon-label">Interactive</span>
+                </a>
+
+            </div>
+
+            <!-- About Window -->
+
+            <div
+                class="desktop-window"
+                id="window-info"
+                style="left: 100px; top: 100px; width: 580px;"
+            >
+
+                <div class="window-titlebar">
+
+                    <div class="titlebar-icon">
+                        <img
+                            src="assets/icons/vista-info.ico"
+                            alt="Info"
+                            width="16"
+                            height="16"
+                        >
+                    </div>
+
+                    <span class="titlebar-text">
+                        Wakana Kisarazu
+                    </span>
+
+                    <div class="titlebar-buttons">
+                        <button class="titlebar-button minimize" aria-label="Minimize"></button>
+                        <button class="titlebar-button maximize" aria-label="Maximize"></button>
+                        <button class="titlebar-button close" aria-label="Close"></button>
+                    </div>
+
+                </div>
+
+                <div class="window-content">
+
+                    <h1>I'm Wakana Kisarazu!</h1>
+
+                    <p>
+                        A British transfem programmer.
+                        I'm just trying my best and living my best life.
+                    </p>
+
+                    <p>
+                        My interests? Kernels, bootloaders, dynamic loaders,
+                        operating systems, compilers, and anything low-level.
+                    </p>
+
+                    <p>
+                        This is my corner of the internet.
+                        Find my projects, blogs, files, experiments,
+                        and assorted acts of technological vandalism.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Terminal Window -->
+
+            <div
+                class="desktop-window"
+                id="window-term"
+                style="left: 300px; top: 300px; width: 450px;"
+            >
+
+                <div class="window-titlebar">
+
+                    <div class="titlebar-icon">
+                        <img
+                            src="assets/icons/vista-console.ico"
+                            alt="Terminal"
+                            width="16"
+                            height="16"
+                        >
+                    </div>
+
+                    <span class="titlebar-text">
+                        xtermjs - taylor@wakanakisarazu.uk:/home/taylor
+                    </span>
+
+                    <div class="titlebar-buttons">
+                        <button class="titlebar-button minimize" aria-label="Minimize"></button>
+                        <button class="titlebar-button maximize" aria-label="Maximize"></button>
+                        <button class="titlebar-button close" aria-label="Close"></button>
+                    </div>
+
+                </div>
+
+                <div class="window-content">
+                    <div id="terminal"></div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+            <p>
+                Copyright &copy; 2026
+                Wakana Kisarazu &lt;wakanakisarazu@gmail.com&gt;
+            </p>
+        </footer>
+
+    </body>
+
+</html>

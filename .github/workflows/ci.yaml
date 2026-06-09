@@ -25,13 +25,24 @@ jobs:
       - name: Setup Node Modules
         run: |
           npm ci
-          
-      - name: Setup Nim
-        uses: jiro4989/setup-nim-action@v2
-
-      - name: Build Nim
+      
+      - name: Install Zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.16.0
+      
+      # Will re-enable after emulator code
+      # somewhat works.
+      #- name: Build Zig
+      #  run:
+      #    zig build -Doptimize=ReleaseSmall
+      
+      - name: Copy to target
         run: |
-          nim compileRelease build.nims
+          set -e
+
+          echo "Making target directory"; mkdir -pv target
+          echo "Copying website/ ..."; cp -r source/website/. target/
 
       - name: Upload target
         uses: actions/upload-pages-artifact@v3
