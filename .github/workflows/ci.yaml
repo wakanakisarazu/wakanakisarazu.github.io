@@ -41,8 +41,10 @@ jobs:
         run: |
           set -e
 
-          echo "Making target directory"; mkdir -pv target
-          echo "Copying website/ ..."; cp -r source/website/. target/
+          echo "Making target directory"; mkdir -pv target; mkdir -pv target/thirdparty
+          echo "Copying node_modules/ ..."; cp -rv node_modules/* target/thirdparty/
+          echo "Copying assets/ ..."; cp -rv assets/. target/
+          echo "Copying website/ ..."; cp -rv source/website/. target/
 
       - name: Upload target
         uses: actions/upload-pages-artifact@v3
