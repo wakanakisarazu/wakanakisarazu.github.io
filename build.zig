@@ -3,6 +3,7 @@
 
 const std = @import("std");
 const Build = std.Build;
+const mem = std.mem;
 const Target = std.Target;
 
 

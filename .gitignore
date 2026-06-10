@@ -6,6 +6,7 @@
 # Build artifacts
 build/
 target/
+node_modules/
 
 # Compiled libraries
 *.a
@@ -52,4 +53,3 @@ Thumbs.db
 
 # Generated sources
 generated/
-node_modules
